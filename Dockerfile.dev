@@ -1,0 +1,18 @@
+# Use the official Node.js 18 image
+FROM node:18-alpine
+
+# Set working directory inside container
+WORKDIR /app
+
+# Install dependencies first (leverage Docker cache)
+COPY package.json package-lock.json* ./
+RUN npm install
+
+# Copy the rest of the app
+COPY . .
+
+# Expose port 3000 for Next.js
+EXPOSE 3000
+
+# Run Next.js in dev mode (hot reload enabled)
+CMD ["npm", "run", "dev"]
