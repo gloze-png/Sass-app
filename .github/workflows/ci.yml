@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,5 +24,5 @@ jobs:
       - name: Build Docker image
         run: docker build -t my-next-app .
 
-      - name: Run Docker container
-        run: docker run -d -p 3000:3000 --name my-next-app-container my-next-app
+      - name: Test Docker image (smoke test)
+        run: docker run --rm my-next-app npm run build
