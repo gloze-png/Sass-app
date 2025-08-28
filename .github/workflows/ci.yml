@@ -20,18 +20,18 @@ jobs:
         with:
           node-version: 18
 
-      # Step 3: Install dependencies
+     
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Build Docker image
+     
       - name: Build Docker image
         run: docker build -t my-next-app .
 
-      # Step 5: Run smoke test in Docker
+     
       - name: Test Docker image
         run: docker run --rm my-next-app npm run build
 
-      # Optional Step 6: Lint the code
+    
       - name: Lint code
         run: npm run lint
