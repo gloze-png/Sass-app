@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react'
 import Lottie, { LottieRefCurrentProps } from 'lottie-react';
 import soundwaves from '../constants/soundwaves.json';
 import { configureAssistant } from "@/lib/utils";
+import { addToSessionHistory } from '@/lib/actions/companion.actions';
 
 enum CallStatus {
   INACTIVE = 'INACTIVE',
@@ -45,6 +46,10 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
       const onCallStart = ()=> setCallStatus (CallStatus.ACTIVE);
 
       const onCallEnd = ()=> setCallStatus (CallStatus.FINISHED);
+
+      //add to sessionhistory(companionId, subject, topic, style, voice);
+
+      addToSessionHistory(companionId);
 
       // to handle incoming messages from the assistant
       const onMessage = ( message: Message) => {

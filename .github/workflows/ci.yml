@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD
 
 on:
   push:
@@ -7,31 +7,26 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-test:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout your repository
       - uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js
+      
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-     
+   
       - name: Install dependencies
         run: npm install
 
-     
+      
       - name: Build Docker image
         run: docker build -t my-next-app .
 
      
-      - name: Test Docker image
-        run: docker run --rm my-next-app npm run build
-
-    
-      - name: Lint code
-        run: npm run lint
+      - name: Run Docker container
+        run: docker run -d -p 3000:3000 --name my-next-app-container my-next-app

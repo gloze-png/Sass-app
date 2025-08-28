@@ -2,37 +2,24 @@ import CompanionCard from '@/components/CompanionCard'
 import CompanionList from '@/components/CompanionList'
 import CTA from '@/components/CTA'
 import { recentSessions } from '@/constants'
+import { getAllCompanions } from '@/lib/actions/companion.actions'
+import { getSubjectColor } from '@/lib/utils'
 import React from 'react'
 
-const Page = () => {
+const Page = async() => {
+  const companions = await getAllCompanions({limit:3});
+  const recentSessions = await getAllCompanions({limit:10});
   return (
     <main>
       <h1>Padii Popular Course</h1>
       <section className="home-section">
-        <CompanionCard
-        id= "123"
-        name="Neura the Brainy Explorer"
-        topic="Neura Network of the Brain"
-        subject="science"
-        duration={45}
-        color ="#FFF5BA"
-         />
-         <CompanionCard
-        id= "456"
-        name="Countsy the Number Wizard"
-        topic="Derivatives and Integrals"
-        subject="math"
-        duration={30}
-        color ="#FFFFFF"
-         />
+        { companions.map((companion)=>(
           <CompanionCard
-        id= "789"
-        name="Verba the Vocabulary Builder"
-        topic="Language"
-        subject="English Literature"
-        duration={20}
-        color ="#A5E2FB"
-         />
+          key={companion.id}
+          {...companion}
+          color={getSubjectColor(companion.subject)}
+          />
+        ))}
       </section>
 
       <section className="home-section">
