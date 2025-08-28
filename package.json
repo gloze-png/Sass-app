@@ -29,13 +29,18 @@
     "zod": "^4.0.17"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.27.1",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "babel-jest": "^30.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-environment-jsdom": "^30.1.0",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.6",
     "typescript": "^5"

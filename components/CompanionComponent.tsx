@@ -165,7 +165,7 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
 
 
           </button>
-          <p>welcome to my cha</p>
+          <p>Padii will Help you Learn Effectively</p>
         </div>
       </section>
       <section className="tanscript">

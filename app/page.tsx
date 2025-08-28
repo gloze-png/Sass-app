@@ -1,14 +1,13 @@
 import CompanionCard from '@/components/CompanionCard'
 import CompanionList from '@/components/CompanionList'
 import CTA from '@/components/CTA'
-import { Button } from '@/components/ui/button'
 import { recentSessions } from '@/constants'
 import React from 'react'
 
 const Page = () => {
   return (
     <main>
-      <h1>Popular Companion </h1>
+      <h1>Padii Popular Course</h1>
       <section className="home-section">
         <CompanionCard
         id= "123"
@@ -16,7 +15,7 @@ const Page = () => {
         topic="Neura Network of the Brain"
         subject="science"
         duration={45}
-        color ="#ffda6e"
+        color ="#FFF5BA"
          />
          <CompanionCard
         id= "456"
@@ -24,7 +23,7 @@ const Page = () => {
         topic="Derivatives and Integrals"
         subject="math"
         duration={30}
-        color ="#e5d0ff"
+        color ="#FFFFFF"
          />
           <CompanionCard
         id= "789"
@@ -32,7 +31,7 @@ const Page = () => {
         topic="Language"
         subject="English Literature"
         duration={20}
-        color ="#BDE7FF"
+        color ="#A5E2FB"
          />
       </section>
 
